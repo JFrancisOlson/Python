@@ -16,57 +16,42 @@ with open(csvpath, newline='') as csvfile:
 
     # skips the header row and counts the number of months
         row_count = sum(1 for row in csvreader) 
-
-with open(csvpath, newline='') as csvfile:
-# CSV reader specifies the delimiter and variable that holds contents
-    Poll_data = csv.reader(csvfile,delimiter=',')
-    
- # Loop through looking for the video
-    for row in Poll_data:
-        if row[2] == "Kahn":
-            row_count=int(sum(1 for row in Poll_data))
-            Kahn_count=row_count
-        elif row[2] == "Correy":
-            row_count=int(sum(1 for row in Poll_data))
-            Correy_count=row_count
-        elif row[2] == "Li":
-            row_count=int(sum(1 for row in Poll_data))
-            Li_count=row_count
-        elif row[2] == "O'Tooley":
-            row_count=int(sum(1 for row in Poll_data))
-            OTooley_count=row_count
-
-#            print(row[0] + " is rated " + row[1] + " with a rating of " + row[5])
-
-            # BONUS: Set variable to confirm we have found the video
-#            found = True
-
-    #if Kahn_count > Correy_count and Kahn_count > Li_count and Kahn_count>OTooley_count:
-
-
-
-
-
+Total=row_count
 print("             Electiion Results               ")
 print("_____________________________________________")
 print("")
 print("Total Votes:           " + str(row_count))
 print("")
-print("_____________________________________________")
-print("")
-print("Kahn:                  " + str(Kahn_count))
-print("")
-print("")
-print("Correy:                " + str(Correy_count))
-print("")
-print("")
-print("Li:                    " + str(Li_count))
-print("")
-print("")
-print("O'Tooley:              " + str(OTooley_count))
-print("")
-print("_____________________________________________")
-print("")
-print("Winner:                " + str(OTooley_count))
-print("")
+
+csvpath = os.path.join('..','Resources', 'election_data.csv')
+
+with open(csvpath, newline='') as csvfile:
+
+    csvreader = csv.reader(csvfile,delimiter=',')
+    
+    next(csvreader) # Skip header
+    
+    data=[r for r in csvreader]
+    
+    for row in csvreader:
+        row_count = sum(1 for row in csvreader) 
+    Total_Vote=row_count
+    #print(data)
+    candidate_List=[]
+    for row in data:
+        candidate_List.append(row[2])
+    #print(candidate_List)
+
+
+    print ("Khan:         (", candidate_List.count('Khan'),")")
+    print ("Correy:       (", candidate_List.count('Correy'),")")
+    print ("Li:           (", candidate_List.count('Li'),")")
+    print ("O'Tooley:     (", candidate_List.count("O'Tooley"),")")    
+
+    khanpct=float((candidate_List.count('Kahn'))/Total_Vote)
+    correypct=float((candidate_List.count('Correy'))/Total_Vote)
+
+    lipct=float((candidate_List.count('Li'))/Total_Vote)
+
+    otooleypct=float((candidate_List.count("O'Tooley"))/Total_Vote)
 
