@@ -42,12 +42,12 @@ with open(csvpath, newline='') as csvfile:
         candidate_List.append(row[2])
     #print(candidate_List)
     
-    khanpct=((candidate_List.count('Kahn'))/Total_Vote)
-    correypct=((candidate_List.count('Correy'))/Total_Vote)
+    khanpct=(int(candidate_List.count('Khan'))/int(Total_Vote))
+    correypct=(int(candidate_List.count('Correy'))/int(Total_Vote))
 
-    lipct=((candidate_List.count('Li'))/Total_Vote)
+    lipct=(int(candidate_List.count('Li'))/int(Total_Vote))
 
-    otooleypct=((candidate_List.count("O'Tooley"))/Total_Vote)
+    otooleypct=(int(candidate_List.count("O'Tooley"))/int(Total_Vote))
 
     print ("Khan:          ", str(khanpct),"%    (", candidate_List.count('Khan'),")")
     print ("Correy:       ", str(correypct),"%    (", candidate_List.count('Correy'),")")
