@@ -35,23 +35,25 @@ with open(csvpath, newline='') as csvfile:
     
     for row in csvreader:
         row_count = sum(1 for row in csvreader) 
-    Total_Vote=row_count
+    Total_Vote=3521001
     #print(data)
     candidate_List=[]
     for row in data:
         candidate_List.append(row[2])
     #print(candidate_List)
+    
+    khanpct=((candidate_List.count('Kahn'))/Total_Vote)
+    correypct=((candidate_List.count('Correy'))/Total_Vote)
 
+    lipct=((candidate_List.count('Li'))/Total_Vote)
 
-    print ("Khan:         (", candidate_List.count('Khan'),")")
-    print ("Correy:       (", candidate_List.count('Correy'),")")
-    print ("Li:           (", candidate_List.count('Li'),")")
-    print ("O'Tooley:     (", candidate_List.count("O'Tooley"),")")    
+    otooleypct=((candidate_List.count("O'Tooley"))/Total_Vote)
 
-    khanpct=float((candidate_List.count('Kahn'))/Total_Vote)
-    correypct=float((candidate_List.count('Correy'))/Total_Vote)
+    print ("Khan:          ", str(khanpct),"%    (", candidate_List.count('Khan'),")")
+    print ("Correy:       ", str(correypct),"%    (", candidate_List.count('Correy'),")")
+    print ("Li:           ", str(lipct),"%    (", candidate_List.count('Li'),")")
+    print ("O'Tooley:     ", str(otooleypct),"%    (", candidate_List.count("O'Tooley"),")")
 
-    lipct=float((candidate_List.count('Li'))/Total_Vote)
-
-    otooleypct=float((candidate_List.count("O'Tooley"))/Total_Vote)
+    
+    
 
