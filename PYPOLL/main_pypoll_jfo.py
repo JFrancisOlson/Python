@@ -42,18 +42,42 @@ with open(csvpath, newline='') as csvfile:
         candidate_List.append(row[2])
     #print(candidate_List)
     
+    pcnt_List=[]
+    cand_List=["Khan","Correy","Li","O'Tooley"]
+    
     khanpct=(int(candidate_List.count('Khan'))/int(Total_Vote))
-    correypct=(int(candidate_List.count('Correy'))/int(Total_Vote))
+    pcnt_List.append(str(khanpct))
 
+    correypct=(int(candidate_List.count('Correy'))/int(Total_Vote))
+    pcnt_List.append(str(correypct))
+    
     lipct=(int(candidate_List.count('Li'))/int(Total_Vote))
+    pcnt_List.append(str(lipct))
 
     otooleypct=(int(candidate_List.count("O'Tooley"))/int(Total_Vote))
+    pcnt_List.append(str(otooleypct))
+
 
     print ("Khan:          ", str(khanpct),"%    (", candidate_List.count('Khan'),")")
+    print("")
     print ("Correy:       ", str(correypct),"%    (", candidate_List.count('Correy'),")")
+    print("")
     print ("Li:           ", str(lipct),"%    (", candidate_List.count('Li'),")")
+    print("")
     print ("O'Tooley:     ", str(otooleypct),"%    (", candidate_List.count("O'Tooley"),")")
+    
+    print("_____________________________________________")
+    print("")
+    if khanpct>correypct and khanpct>lipct and khanpct>otooleypct:
+        print("Winner:          Khan")
+    elif  correypct>khanpct and correypct>lipct and  correypct>otooleypct:
+        print("Winner:          Correy")
+    elif  li>khanpct and lipct>correypct and  lipct>otooleypct:
+        print("Winner:          Li")
+    elif  otooleypct>khanpct and otooleypct>lipct and  otooleypct>correypct:
+        print("Winner:          O'Tooley")
 
+    #print(pcnt_List)
     
     
 
